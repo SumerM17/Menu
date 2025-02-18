@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biotech Canteen Menu</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .menu-item {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .new-item {
+            position: relative;
+        }
+
+        .new-item::after {
+            content: 'New';
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #FF4B4B;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            animation: pulse 2s infinite;
+        }
+
+        .price-tag {
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .menu-item:hover .price-tag {
+            color: #FF4B4B;
+            transform: scale(1.1);
+        }
+
+        .section-header {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #FF4B4B;
+            transition: width 0.3s ease-out;
+        }
+
+        .section-header:hover::after {
+            width: 100%;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        .header-slide-in {
+            animation: slideIn 1s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-2xl mx-auto p-4">
+        <!-- Header -->
+        <header class="text-center py-6 header-slide-in">
+            <h1 class="text-3xl font-bold text-gray-800">Biotech Canteen</h1>
+            <p class="text-gray-600 mt-2">Fresh & Delicious</p>
+        </header>
+
+        <!-- Menu Categories -->
+        <div class="space-y-6">
+            <!-- Breakfast Section -->
+            <section class="bg-white rounded-lg shadow-md p-6 animate-fade-in" style="animation-delay: 0.2s;">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 section-header">Lite Breakfast</h2>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Vada Pav</h3>
+                            <p class="text-sm text-gray-600">Medium</p>
+                        </div>
+                        <span class="font-medium price-tag">₹20</span>
+                    </div>
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Poha</h3>
+                            <p class="text-sm text-gray-600">Classic Indian breakfast</p>
+                        </div>
+                        <span class="font-medium price-tag">₹20</span>
+                    </div>
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Bread Roll</h3>
+                            <p class="text-sm text-gray-600">Single</p>
+                        </div>
+                        <span class="font-medium price-tag">₹20</span>
+                    </div>
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Maisoree Vada</h3>
+                            <p class="text-sm text-gray-600">Full:4 Pic/Half:2Pic</p>
+                        </div>
+                        <span class="font-medium price-tag">₹30(Full)/15(Half)</span>
+                    </div>
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Samosa</h3>
+                            <p class="text-sm text-gray-600">Medium</p>
+                        </div>
+                        <span class="font-medium price-tag">₹20</span>
+                    </div>
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Kachori</h3>
+                            <p class="text-sm text-gray-600">Medium</p>
+                        </div>
+                        <span class="font-medium price-tag">₹20</span>
+                    </div>
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Udid Vada</h3>
+                            <p class="text-sm text-gray-600">Half/Full</p>
+                        </div>
+                        <span class="font-medium price-tag">₹30/₹15</span>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Full Breakfast Section -->
+            <section class="bg-white rounded-lg shadow-md p-6 animate-fade-in" style="animation-delay: 0.4s;">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 section-header">Full Breakfast</h2>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Misal</h3>
+                            <p class="text-sm text-gray-600">Served with 2 Bread</p>
+                        </div>
+                        <span class="font-medium price-tag">₹40</span>
+                    </div>
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Veg Crispy</h3>
+                            <p class="text-sm text-gray-600">Regular portion</p>
+                        </div>
+                        <span class="font-medium price-tag">₹40</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lunch Section -->
+            <section class="bg-white rounded-lg shadow-md p-6 animate-fade-in" style="animation-delay: 0.6s;">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 section-header">Lunch</h2>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Butter Chicken Thali</h3>
+                            <p class="text-sm text-gray-600">Butter Chicken,2 Rotis,Salad</p>
+                        </div>
+                        <span class="font-medium price-tag">₹70</span>
+                    </div>
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Panner Thali</h3>
+                            <p class="text-sm text-gray-600">Panner Curry,2 Rotis,Salad</p>
+                        </div>
+                        <span class="font-medium price-tag">₹70</span>
+                    </div>
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Chicken Biryani</h3>
+                            <p class="text-sm text-gray-600">Chicken Biryani,Rayata</p>
+                        </div>
+                        <span class="font-medium price-tag">₹70</span>
+                    </div>
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Veg Biryani</h3>
+                            <p class="text-sm text-gray-600">Veg Biryani,Rayata</p>
+                        </div>
+                        <span class="font-medium price-tag">₹70</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Beverages Section -->
+            <section class="bg-white rounded-lg shadow-md p-6 animate-fade-in" style="animation-delay: 0.8s;">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 section-header">Beverages</h2>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Tea</h3>
+                            <p class="text-sm text-gray-600">Regular</p>
+                        </div>
+                        <span class="font-medium price-tag">₹10</span>
+                    </div>
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Coffee</h3>
+                            <p class="text-sm text-gray-600">Regular/Hard/Filter</p>
+                        </div>
+                        <span class="font-medium price-tag">₹20</span>
+                    </div>
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Vanilla Milk Shake</h3>
+                            <p class="text-sm text-gray-600"></p>
+                        </div>
+                        <span class="font-medium price-tag">₹35</span>
+                    </div>
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Choclate Milk Shake</h3>
+                            <p class="text-sm text-gray-600"></p>
+                        </div>
+                        <span class="font-medium price-tag">₹35</span>
+                    </div>
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Strawberry Milk Shake</h3>
+                            <p class="text-sm text-gray-600"></p>
+                        </div>
+                        <span class="font-medium price-tag">₹35</span>
+                    </div>
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Mango Milk Shake</h3>
+                            <p class="text-sm text-gray-600"></p>
+                        </div>
+                        <span class="font-medium price-tag">₹35</span>
+                    </div>
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">Taak(ButterMilk)</h3>
+                            <p class="text-sm text-gray-600">1 Glass</p>
+                        </div>
+                        <span class="font-medium price-tag">₹20</span>
+                    </div>
+                    <div class="flex justify-between items-center menu-item p-3 rounded-lg">
+                        <div>
+                            <h3 class="font-medium">SolKadi</h3>
+                            <p class="text-sm text-gray-600">1 Glass</p>
+                        </div>
+                        <span class="font-medium price-tag">₹20</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center py-6 text-sm text-gray-600 animate-fade-in" style="animation-delay: 1s;">
+            <p>Opening Hours: Monday to Saturday</p>
+            <p>8:00 AM - 6:00 PM</p>
+            <p class="mt-2">For bulk orders, contact: 123-456-7890</p>
+        </footer>
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = 0;
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
